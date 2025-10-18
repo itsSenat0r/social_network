@@ -1,0 +1,4 @@
+div.ActivityFeed_Container {
+    height: 100%;
+    overflow: scroll;
+}

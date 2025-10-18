@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "postPicture": "https://picsum.photos/1200",
+    "postThumbnail": "Компания «ИнноваТех» делится новостями о запуске программы стажировок для молодых специалистов в сфере искусственного интеллекта.",
+    "postAutor": "Компания «ИнноваТех»",
+    "postAutorAvatar": "https://picsum.photos/200",
+    "postAutorRating": 4.7,
+    "postDate": "12.03.2023",
+    "postStatistic": [512, 321, 845],
+    "postType": "Post"
+  },
+  {
+    "id": 2,
+    "postPicture": "https://picsum.photos/1200",
+    "postThumbnail": "ООО «ЦифраПлюс» организует кейс по оптимизации IT-инфраструктуры для крупного банка. В рамках проекта будут внедрены решения по безопасности и мониторингу систем.",
+    "postAutor": "ООО «ЦифраПлюс»",
+    "postAutorAvatar": "https://picsum.photos/200",
+    "postAutorRating": 4.2,
+    "postDate": "25.04.2024",
+    "postStatistic": [812, 745, 312],
+    "postType": "Case"
+  },
+  {
+    "id": 3,
+    "postPicture": "https://picsum.photos/1200",
+    "postThumbnail": "Предприятие «ТехноСфера» приглашает всех желающих на митап «Будущее DevOps и автоматизации процессов». Участники смогут обсудить тренды и кейсы внедрения CI/CD.",
+    "postAutor": "Предприятие «ТехноСфера»",
+    "postAutorAvatar": "https://picsum.photos/200",
+    "postAutorRating": 3.9,
+    "postDate": "10.02.2022",
+    "postStatistic": [723, 411, 654],
+    "postType": "Event"
+  },
+  {
+    "id": 4,
+    "postPicture": "https://picsum.photos/1200",
+    "postThumbnail": "Компания «Софтлайн Про» делится итогами прошедшего квартала: команда успешно завершила 12 проектов по внедрению CRM-систем в розничных компаниях.",
+    "postAutor": "Компания «Софтлайн Про»",
+    "postAutorAvatar": "https://picsum.photos/200",
+    "postAutorRating": 4.4,
+    "postDate": "18.07.2023",
+    "postStatistic": [499, 228, 777],
+    "postType": "Post"
+  },
+  {
+    "id": 5,
+    "postPicture": "https://picsum.photos/1200",
+    "postThumbnail": "ООО «ДатаНет» представляет кейс по миграции серверной инфраструктуры клиента в облако с использованием контейнеризации и Kubernetes.",
+    "postAutor": "ООО «ДатаНет»",
+    "postAutorAvatar": "https://picsum.photos/200",
+    "postAutorRating": 4.8,
+    "postDate": "06.11.2021",
+    "postStatistic": [955, 654, 832],
+    "postType": "Case"
+  },
+  {
+    "id": 6,
+    "postPicture": "https://picsum.photos/1200",
+    "postThumbnail": "Компания «АйТи Город» приглашает всех специалистов на день открытых дверей. Гостей ждут мастер-классы, экскурсия по офису и общение с командами разработки.",
+    "postAutor": "Компания «АйТи Город»",
+    "postAutorAvatar": "https://picsum.photos/200",
+    "postAutorRating": 3.5,
+    "postDate": "19.01.2024",
+    "postStatistic": [642, 433, 212],
+    "postType": "Event"
+  },
+  {
+    "id": 7,
+    "postPicture": "https://picsum.photos/1200",
+    "postThumbnail": "Предприятие «Систематика» делится своими новыми проектами и внедрением искусственного интеллекта для оптимизации бизнес-процессов клиентов.",
+    "postAutor": "Предприятие «Систематика»",
+    "postAutorAvatar": "https://picsum.photos/200",
+    "postAutorRating": 4.0,
+    "postDate": "09.09.2022",
+    "postStatistic": [799, 582, 941],
+    "postType": "Post"
+  },
+  {
+    "id": 8,
+    "postPicture": "https://picsum.photos/1200",
+    "postThumbnail": "ООО «БайтЛаб» представляет кейс по автоматизации учета заказов для e-commerce компании с использованием Node.js и PostgreSQL.",
+    "postAutor": "ООО «БайтЛаб»",
+    "postAutorAvatar": "https://picsum.photos/200",
+    "postAutorRating": 4.5,
+    "postDate": "22.03.2020",
+    "postStatistic": [998, 744, 311],
+    "postType": "Case"
+  },
+  {
+    "id": 9,
+    "postPicture": "https://picsum.photos/1200",
+    "postThumbnail": "Компания «АйКлауд Сервис» проводит IT-митап по теме «Безопасность данных в облаке». Спикеры расскажут о лучших практиках и инструментах защиты информации.",
+    "postAutor": "Компания «АйКлауд Сервис»",
+    "postAutorAvatar": "https://picsum.photos/200",
+    "postAutorRating": 4.1,
+    "postDate": "17.05.2023",
+    "postStatistic": [735, 624, 482],
+    "postType": "Event"
+  },
+  {
+    "id": 10,
+    "postPicture": "https://picsum.photos/1200",
+    "postThumbnail": "ООО «КодСфера» рассказывает о новой корпоративной культуре: переход на гибридный формат работы позволил повысить эффективность и вовлеченность сотрудников.",
+    "postAutor": "ООО «КодСфера»",
+    "postAutorAvatar": "https://picsum.photos/200",
+    "postAutorRating": 3.6,
+    "postDate": "10.04.2022",
+    "postStatistic": [423, 234, 598],
+    "postType": "Post"
+  },
+  {
+    "id": 11,
+    "postPicture": "https://picsum.photos/1200",
+    "postThumbnail": "Предприятие «ДиджиталПро» делится кейсом: создание аналитической системы для ритейл-сети с визуализацией данных в реальном времени.",
+    "postAutor": "Предприятие «ДиджиталПро»",
+    "postAutorAvatar": "https://picsum.photos/200",
+    "postAutorRating": 4.9,
+    "postDate": "03.03.2023",
+    "postStatistic": [945, 783, 822],
+    "postType": "Case"
+  },
+  {
+    "id": 12,
+    "postPicture": "https://picsum.photos/1200",
+    "postThumbnail": "Компания «БитСофт» приглашает всех IT-специалистов на весенний митап по новым технологиям в backend-разработке и DevOps.",
+    "postAutor": "Компания «БитСофт»",
+    "postAutorAvatar": "https://picsum.photos/200",
+    "postAutorRating": 3.8,
+    "postDate": "27.02.2024",
+    "postStatistic": [821, 612, 379],
+    "postType": "Event"
+  },
+  {
+    "id": 13,
+    "postPicture": "https://picsum.photos/1200",
+    "postThumbnail": "ООО «КиберНет» реализовало кейс по внедрению системы мониторинга серверов и журналирования событий для крупной логистической компании.",
+    "postAutor": "ООО «КиберНет»",
+    "postAutorAvatar": "https://picsum.photos/200",
+    "postAutorRating": 4.6,
+    "postDate": "06.06.2022",
+    "postStatistic": [765, 548, 614],
+    "postType": "Case"
+  },
+  {
+    "id": 14,
+    "postPicture": "https://picsum.photos/1200",
+    "postThumbnail": "Компания «ИнфоТех Групп» рассказывает о запуске новой корпоративной академии для повышения квалификации сотрудников.",
+    "postAutor": "Компания «ИнфоТех Групп»",
+    "postAutorAvatar": "https://picsum.photos/200",
+    "postAutorRating": 4.0,
+    "postDate": "11.12.2023",
+    "postStatistic": [584, 293, 811],
+    "postType": "Post"
+  },
+  {
+    "id": 15,
+    "postPicture": "https://picsum.photos/1200",
+    "postThumbnail": "Предприятие «ТехноВижн» приглашает всех на день инноваций — мероприятие о современных решениях в области искусственного интеллекта и нейросетей.",
+    "postAutor": "Предприятие «ТехноВижн»",
+    "postAutorAvatar": "https://picsum.photos/200",
+    "postAutorRating": 3.9,
+    "postDate": "22.08.2024",
+    "postStatistic": [788, 431, 655],
+    "postType": "Event"
+  },
+  {
+    "id": 16,
+    "postPicture": "https://picsum.photos/1200",
+    "postThumbnail": "ООО «СофтМаркет» делится кейсом внедрения ERP-системы для торговой сети, которая помогла сократить издержки и повысить прозрачность бизнес-процессов.",
+    "postAutor": "ООО «СофтМаркет»",
+    "postAutorAvatar": "https://picsum.photos/200",
+    "postAutorRating": 4.5,
+    "postDate": "01.01.2021",
+    "postStatistic": [999, 872, 712],
+    "postType": "Case"
+  },
+  {
+    "id": 17,
+    "postPicture": "https://picsum.photos/1200",
+    "postThumbnail": "Компания «АйТи Сервис» делится итогами внутреннего хакатона, где сотрудники разрабатывали прототипы решений для автоматизации клиентских запросов.",
+    "postAutor": "Компания «АйТи Сервис»",
+    "postAutorAvatar": "https://picsum.photos/200",
+    "postAutorRating": 3.4,
+    "postDate": "10.07.2023",
+    "postStatistic": [612, 421, 501],
+    "postType": "Post"
+  },
+  {
+    "id": 18,
+    "postPicture": "https://picsum.photos/1200",
+    "postThumbnail": "ООО «ТехЛаб» приглашает на открытый митап по Data Science, где ведущие специалисты компании расскажут о практиках машинного обучения.",
+    "postAutor": "ООО «ТехЛаб»",
+    "postAutorAvatar": "https://picsum.photos/200",
+    "postAutorRating": 4.2,
+    "postDate": "09.05.2024",
+    "postStatistic": [824, 699, 324],
+    "postType": "Event"
+  },
+  {
+    "id": 19,
+    "postPicture": "https://picsum.photos/1200",
+    "postThumbnail": "Предприятие «ЦифраЛогика» делится кейсом создания системы прогнозирования спроса с использованием искусственных нейронных сетей.",
+    "postAutor": "Предприятие «ЦифраЛогика»",
+    "postAutorAvatar": "https://picsum.photos/200",
+    "postAutorRating": 4.9,
+    "postDate": "15.02.2022",
+    "postStatistic": [912, 584, 879],
+    "postType": "Case"
+  },
+  {
+    "id": 20,
+    "postPicture": "https://picsum.photos/1200",
+    "postThumbnail": "Компания «КлаудМир» сообщает о расширении команды и открытии нового офиса в Санкт-Петербурге.",
+    "postAutor": "Компания «КлаудМир»",
+    "postAutorAvatar": "https://picsum.photos/200",
+    "postAutorRating": 4.1,
+    "postDate": "30.10.2024",
+    "postStatistic": [523, 433, 612],
+    "postType": "Post"
+  }
+]

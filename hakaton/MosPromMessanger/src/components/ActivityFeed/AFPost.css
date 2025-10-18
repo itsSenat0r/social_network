@@ -1,0 +1,125 @@
+div.Post {
+    width: 90%;
+    border-radius: 0px 0px 15px 15px;
+    padding: 10px;
+    margin-bottom: 10%;
+}
+
+div.Post_Container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.Post_Container > div.Post > div.PostHeader > img {
+    width: 15%;
+    height: 15%;
+    border-radius: 50px;
+}
+
+div.Post_Container > div.Post > div.PostBody {
+    width: 100%;
+    display: grid;
+}
+
+div.Post_Container > div > div > img.PostBodyPicture {
+    width: 100%;
+    height: 95%;
+    border-radius: 10px;
+    justify-self: center;
+}
+
+div.Post_Container > div.Post > div.PostHeader {
+    display: flex;
+    height: 10%;
+    margin-bottom: 15px;
+}
+
+div.Post_Container > div.Post > div.PostHeader > div.PostHeader_Container {
+    display: grid;
+    margin-left: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.Post_Container > div.Post > div.PostHeader > div.PostHeader_Container > div.PostHeaderAutorRating {
+    justify-self: self-end;
+}
+
+div.Post_Container > div.Post > div.PostHeader > div.PostHeader_Container > div.PostHeaderNameDate h3 {
+    margin: 0;
+    font-family: 'Comfortaa';
+    font-weight: bold;
+}
+
+div.Post_Container > div.Post > div.PostHeader > div.PostHeader_Container > div.PostHeaderNameDate * {
+    top: 0;
+    margin: 0;
+    padding: 0;
+}
+
+div.Post_Container > div.Post > div.PostHeader > div.PostHeader_Container > div.PostHeaderNameDate > p {
+    margin: 0;
+    margin-top: 3px;
+    font-size: 13px;
+    font-family: 'Comfortaa';
+}
+
+div.Post_Container > div.Post > div.PostBody > p {
+    font-family: 'Roboto';
+    font-size: 15px;
+}
+
+div.Post_Container > div.Post > div.PostFooter {
+    display: flex;
+    gap: 30px;
+}
+
+div.Post_Container > div.Post > div.PostFooter > div.PostStatisticLikes,
+div.Post_Container > div.Post > div.PostFooter > div.PostStatisticComments,
+div.Post_Container > div.Post > div.PostFooter > div.PostStatisticReposts {
+    display: flex;
+    gap: 5px;
+    font-family: 'Roboto';
+    font-size: 13px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+div.Post_Container > div.Post > div.PostFooter > div.PostStatisticLikes:hover,
+div.Post_Container > div.Post > div.PostFooter > div.PostStatisticComments:hover,
+div.Post_Container > div.Post > div.PostFooter > div.PostStatisticReposts:hover {
+    color: rgba(0,0,0,0.7)
+}
+
+div.Post_Container > div.Post > div.PostFooter > div.PostStatisticLikes > svg,
+div.Post_Container > div.Post > div.PostFooter > div.PostStatisticComments > svg,
+div.Post_Container > div.Post > div.PostFooter > div.PostStatisticReposts > svg {
+    font-size: 20px;
+}
+
+div.Post_Container > div.PostType {
+    display: flex;
+    width: 94%;
+    height: 25px;
+    margin: 0;
+    padding: 0;
+    border: 2px solid black;
+    border-radius: 12px 12px 0px 0px;
+    background-color: rgb(0, 0, 0);
+    align-items: center;
+}
+
+div.Post_Container > div.PostType > p {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+    font-size: 17px;
+    font-weight: 700;
+    font-family: 'Roboto';
+    color: rgb(255, 255, 255);
+}

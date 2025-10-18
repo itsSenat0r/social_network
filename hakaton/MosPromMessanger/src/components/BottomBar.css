@@ -1,0 +1,34 @@
+footer {
+    clear: both;
+    margin: auto;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    border-top: 1px solid gray;
+}
+
+footer ul {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+footer ul * {
+    text-decoration: none;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border-radius: 15px;
+    list-style: none;
+    margin: 0;
+    width: 33%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
