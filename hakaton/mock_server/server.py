@@ -47,11 +47,15 @@ class CreatePostData(BaseModel):
 async def Post(post_data: CreatePostData = None,
                action: str = Query(...)):
     with open('./placeholders.json', 'r', encoding="utf8") as f:
-        data = await db['posts'].find_one({})
+        data = db['posts'].find()
+        docs = []
+        async for doc in data:
+            doc.pop('_id', None)
+            docs.append(doc)
         if action == "get":
-            return [data[random.randint(0, len(data) - 1)], 
-                    data[random.randint(0, len(data) - 1)],
-                    data[random.randint(0, len(data) - 1)]]
+            return [docs[random.randint(0, len(docs) - 1)], 
+                    docs[random.randint(0, len(docs) - 1)],
+                    docs[random.randint(0, len(docs) - 1)]]
         elif action == "add" and post_data:
             await db['posts'].insert_one({
                 "id": str(db['posts'].count_documents({} + 1)),
