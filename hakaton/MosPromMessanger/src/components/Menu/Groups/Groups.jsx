@@ -1,9 +1,12 @@
 import './Groups.css';
+import GroupCreate from './GroupCreate';
 
 const Groups = () => {
+
+    
     return (
         <div className="Groups_Container">
-            <p>groups</p>
+            
         </div>
     )
 }

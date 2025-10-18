@@ -5,7 +5,7 @@ import Settings from './Menu/Settings'
 import RewardsSettings from './Menu/RewardsSettings'
 import Rewards from './Rewards'
 import Cases from './Menu/Cases'
-import Groups from './Menu/Groups'
+import Groups from './Menu/Groups/Groups'
 import Analitics from './Menu/Analitics'
 import './MainContainer.css'
 import {
@@ -23,9 +23,27 @@ const MainContainer = () => {
                     <Route path='/rewards' element={<Rewards/>}/>
                     <Route path='/menu' element={<Menu/>}/>
                     <Route path='/menu/settings' element={<Settings/>}/>
-                    <Route path='/menu/cv' element={<CV/>}/>
+                    <Route path='/menu/cv' element={<CV 
+                                                        CVAvatar='https://picsum.photos/200' 
+                                                        CVNameSurname='Иван Иванов' 
+                                                        CVDateOfBirthday='12.01.2003' 
+                                                        CVAboutMe='ООО «ЦифраПлюс» организует кейс по оптимизации IT-инфраструктуры для крупного банка. В рамках проекта будут внедрены решения по безопасности и мониторингу систем. ООО «ЦифраПлюс» организует кейс по оптимизации IT-инфраструктуры для крупного банка. В рамках проекта будут внедрены решения по безопасности и мониторингу систем.'
+                                                        CVCompetencies='Unix-like Systems, Python, MongoDB, Windows, Net'
+                                                        CVRewards={{
+                                                            "RewImg": "https://picsum.photos/200",
+                                                            "RewName": "Как яблочки!",
+                                                            "RewLink": "/menu"
+                                                        }}/>}/>
                     <Route path='/menu/rewards' element={<RewardsSettings/>}/>
-                    <Route path='/menu/cases' element={<Cases/>}/>
+                    <Route path='/menu/cases' element={<Cases
+                                                            CaseAutorImg='https://picsum.photos/200'
+                                                            CaseAutorName='ООО "ЦифраТех"'
+                                                            CaseThumbnailInShort='Автоматизированное решение проблем с нагрузкой у дерева серверов'
+                                                            CompletedCases={{
+                                                                "CaseAutorImg": "https://picsum.photos/200",
+                                                                "CaseAutorName": "Компания «ИнноваТех»",
+                                                                "CaseThumbnailInShort": "Оптимизация IT-инфраструктуры крупного банка"
+                                                            }}/>}/>
                     <Route path='/menu/groups' element={<Groups/>}/>
                     <Route path='/menu/analitics' element={<Analitics/>}/>
             </Routes>
