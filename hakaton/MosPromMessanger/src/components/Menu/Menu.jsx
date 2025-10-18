@@ -20,11 +20,6 @@ const Menu = () => {
                         <h1>Портфолио</h1>
                     </div>
                 </Link>
-                <Link to="/menu/rewards">
-                    <div className='MenuRewards_Container'>
-                        <h1>Достижения</h1>
-                    </div>
-                </Link>
                 <Link to="/menu/cases">
                     <div className='MenuCases_Container'>
                         <h1>Кейсы</h1>
