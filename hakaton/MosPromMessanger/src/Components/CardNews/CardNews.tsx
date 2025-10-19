@@ -12,8 +12,27 @@ import ReplyIcon from '@mui/icons-material/Reply';
 type CardNewsProps = {
   children?: React.ReactNode;
   newsData: CardNewsType;
-  onClickAuthor: (authorName: string, authorDesc: string) => void;
+  onClickAuthor: (authorName: string, authorDesc: string, data: string) => void;
 };
+
+function getRandomDateBefore2010(): Date {
+  const startYear = 1950;
+  const endYear = 2009;
+
+  const randomYear = Math.floor(Math.random() * (endYear - startYear + 1)) + startYear;
+  const randomMonth = Math.floor(Math.random() * 12);
+  const randomDay = Math.floor(Math.random() * 28) + 1; // чтобы избежать ошибок в феврале
+
+  return new Date(randomYear, randomMonth, randomDay);
+}
+
+function getRandomDateStringBefore2010(): string {
+  const date = getRandomDateBefore2010();
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+  return `${day}.${month}.${year}`;
+}
 
 export const CardNews: FC<CardNewsProps> = ({ newsData, children, onClickAuthor }) => {
   return (
@@ -23,7 +42,9 @@ export const CardNews: FC<CardNewsProps> = ({ newsData, children, onClickAuthor 
           {newsData.headerText}
         </AppTypography>
       </CardNewsHeader>
-      <CardNewsAuthorContainer onClick={() => onClickAuthor(newsData.authorName, newsData.smallDescription)}>
+      <CardNewsAuthorContainer
+        onClick={() => onClickAuthor(newsData.authorName, newsData.smallDescription, getRandomDateStringBefore2010())}
+      >
         <Avatar sx={{ width: 50, height: 50 }} alt={newsData.authorName} src={newsData.authorImg} />
         <Box
           sx={{

@@ -17,7 +17,11 @@ type NewsShowType = {
 
 export const NewsPage: FC<NewsPageProps> = () => {
   const [showIs, setshowIs] = useState<NewsShowType>({ show: 'Main' });
-  const [author, setAuthor] = useState<{ authorName: string; aurhorDesc: string }>({ authorName: '', aurhorDesc: '' });
+  const [author, setAuthor] = useState<{ authorName: string; aurhorDesc: string; data: string }>({
+    authorName: '',
+    aurhorDesc: '',
+    data: '',
+  });
   const [news, setNews] = useState<CardNewsType[]>([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -69,7 +73,16 @@ export const NewsPage: FC<NewsPageProps> = () => {
 
   return (
     <NewsPageContainer>
-      {showIs.show !== 'Main' && <BackButton onClick={() => show({ show: 'Main' })} />}
+      {showIs.show !== 'Main' && (
+        <BackButton
+          onClick={() => {
+            show({ show: 'Main' });
+            setAuthor({ aurhorDesc: '', authorName: '', data: '' });
+            setNews([]);
+            fetchNews(1);
+          }}
+        />
+      )}
       {showIs.show === 'Main' && (
         <>
           <img
@@ -101,6 +114,7 @@ export const NewsPage: FC<NewsPageProps> = () => {
             fontWeight={900}
             color="success"
             variant="h2"
+            textAlign="center"
           >
             {author.authorName}
           </AppTypography>
@@ -112,7 +126,7 @@ export const NewsPage: FC<NewsPageProps> = () => {
             color="success"
             variant="h2"
           >
-            дата регистрации
+            {`дата регистрации ${author.data}`}
           </AppTypography>
           <GroupDescription>
             <AppTypography
@@ -151,9 +165,16 @@ export const NewsPage: FC<NewsPageProps> = () => {
 
       <CardNewsList
         newsData={news}
-        onClickGroup={(authorName, authorDesc) => {
-          setAuthor({ aurhorDesc: authorDesc, authorName: authorName });
+        onClickGroup={(authorName, authorDesc, data) => {
+          setAuthor({ aurhorDesc: authorDesc, authorName: authorName, data: data });
           setshowIs({ show: 'Group' });
+          setNews(prevNews =>
+            prevNews.map(newsItem => ({
+              ...newsItem,
+              authorName: authorName,
+              smallDescription: authorDesc, // добавляем или заменяем поле
+            })),
+          );
         }}
       />
 
