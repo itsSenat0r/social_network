@@ -24,6 +24,7 @@ export type CardNewsType = {
   authorName: string;
   postData: string;
   smallDescription: string;
+  postPicture: string;
   countLikes: number;
   countMessages: number;
   countReposts: number;
