@@ -99,7 +99,7 @@ export const ProfilePage: FC<ProfilePageProps> = () => {
           <SocialButton
             sx={{ width: '258px', marginBottom: '20px', marginTop: '45px' }}
             onClick={() => {
-              window.open('https://vk.com', '_blank', 'noopener,noreferrer');
+              window.open('https://www.behance.net/', '_blank', 'noopener,noreferrer');
             }}
           >
             <AppTypography
@@ -116,7 +116,7 @@ export const ProfilePage: FC<ProfilePageProps> = () => {
           <SocialButton
             sx={{ width: '258px' }}
             onClick={() => {
-              window.open('https://vk.com', '_blank', 'noopener,noreferrer');
+              window.open('https://t.me', '_blank', 'noopener,noreferrer');
             }}
           >
             <AppTypography
