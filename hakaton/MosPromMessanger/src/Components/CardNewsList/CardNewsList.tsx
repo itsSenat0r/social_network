@@ -4,13 +4,14 @@ import { CardNews } from '../CardNews/CardNews';
 
 type CardNewsListProps = {
   newsData: CardNewsType[];
+  onClickGroup: (authorName: string) => void;
 };
 
-export const CardNewsList: FC<CardNewsListProps> = ({ newsData }) => (
+export const CardNewsList: FC<CardNewsListProps> = ({ newsData, onClickGroup }) => (
   <CardNewsContainer>
     <CardNewsListContainer>
       {newsData.map((data, index) => (
-        <CardNews key={index} newsData={data} />
+        <CardNews key={index} newsData={data} onClickAuthor={onClickGroup} />
       ))}
     </CardNewsListContainer>
   </CardNewsContainer>

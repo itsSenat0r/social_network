@@ -12,9 +12,10 @@ import ReplyIcon from '@mui/icons-material/Reply';
 type CardNewsProps = {
   children?: React.ReactNode;
   newsData: CardNewsType;
+  onClickAuthor: (authorName: string) => void;
 };
 
-export const CardNews: FC<CardNewsProps> = ({ newsData, children }) => {
+export const CardNews: FC<CardNewsProps> = ({ newsData, children, onClickAuthor }) => {
   return (
     <CardNewsContainer>
       <CardNewsHeader>
@@ -22,7 +23,7 @@ export const CardNews: FC<CardNewsProps> = ({ newsData, children }) => {
           {newsData.headerText}
         </AppTypography>
       </CardNewsHeader>
-      <CardNewsAuthorContainer>
+      <CardNewsAuthorContainer onClick={() => onClickAuthor(newsData.authorName)}>
         <Avatar sx={{ width: 50, height: 50 }} alt={newsData.authorName} src={''} />
         <Box
           sx={{
@@ -30,7 +31,8 @@ export const CardNews: FC<CardNewsProps> = ({ newsData, children }) => {
             flexDirection: 'column',
             paddingInline: '8px',
             justifyContent: 'center',
-            width: '100%',
+            alignItems: 'flex-start',
+            height: '100%',
           }}
         >
           <AppTypography variant="body1" color="textPrimary" font="RobotoLocal" fontWeight={500} fontSize={'1rem'}>
@@ -64,7 +66,7 @@ export const CardNews: FC<CardNewsProps> = ({ newsData, children }) => {
           loading="lazy"
         />
       </Box>
-      <Box sx={{ display: 'flex', width: '100%', backgroundColor: 'white', padding: '8px', paddingTop: '20px' }}>
+      <Box sx={{ display: 'flex', backgroundColor: 'white', padding: '8px', paddingTop: '20px' }}>
         <AppTypography
           lineHeight={1.1}
           variant="body1"

@@ -19,10 +19,22 @@ export const CardNewsHeader = styled(Box)(() => ({
   width: '100%',
 }))
 
-export const CardNewsAuthorContainer = styled(Box)(() => ({
+export const CardNewsAuthorContainer = styled('button')(() => ({
+  border: 'unset',
   backgroundColor: 'white',
   display: 'flex',
   width: '100%',
   flexDirection: 'row',
-  padding: '8px'
+  padding: '8px',
+
+  // Hover (необязательно)
+  '&:hover': {
+    filter: 'brightness(1.1)', // чуть ярче
+  },
+
+  // Active — когда пользователь нажимает
+  '&:active': {
+    transform: 'scale(0.97)',   // кнопка слегка уменьшается
+    filter: 'brightness(0.8)',  // фон темнее
+  },
 }))
