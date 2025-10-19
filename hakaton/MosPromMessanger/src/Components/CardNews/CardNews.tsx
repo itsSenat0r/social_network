@@ -24,7 +24,7 @@ export const CardNews: FC<CardNewsProps> = ({ newsData, children, onClickAuthor 
         </AppTypography>
       </CardNewsHeader>
       <CardNewsAuthorContainer onClick={() => onClickAuthor(newsData.authorName)}>
-        <Avatar sx={{ width: 50, height: 50 }} alt={newsData.authorName} src={''} />
+        <Avatar sx={{ width: 50, height: 50 }} alt={newsData.authorName} src={newsData.authorImg} />
         <Box
           sx={{
             display: 'flex',
@@ -62,7 +62,7 @@ export const CardNews: FC<CardNewsProps> = ({ newsData, children, onClickAuthor 
             borderRadius: '16px',
           }}
           src={newsData.postPicture}
-          alt={"postpicture"}
+          alt={'postpicture'}
           loading="lazy"
         />
       </Box>

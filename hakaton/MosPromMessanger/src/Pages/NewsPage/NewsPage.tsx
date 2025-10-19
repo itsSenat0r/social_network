@@ -1,11 +1,11 @@
-import { useState, type FC } from 'react';
+import { useEffect, useState, type FC } from 'react';
 import { GroupDescription, NewsPageContainer } from './NewsPageContainer';
 import mospromLogo from '../../assets/images/mospromLogo.png';
 import AppTypography from '../../UI/AppTypography/AppTypography';
-import { CardNewsList, CardNewsType } from '../../Components/CardNewsList/CardNewsList';
 import { Avatar, Box } from '@mui/material';
 import { BackButton } from '../../UI/BackButton/BackButton';
-import { getData, sendData } from './NewsPageContainer';
+import { getData } from './NewsPageContainer';
+import { CardNewsType, CardNewsList } from '../../Components/CardNewsList/CardNewsList';
 
 type NewsPageProps = {
   props?: never;
@@ -15,23 +15,58 @@ type NewsShowType = {
   show: 'Main' | 'Group';
 };
 
-const News: CardNewsType[] = [];
-
-(async () => {
-  const data = (await getData<CardNewsType[]>('http://localhost:3005/posts?action=get')) ?? [];
-  News.push(...data);
-})();
-
 export const NewsPage: FC<NewsPageProps> = () => {
-  const [showIs, setshowIs] = useState<NewsShowType>({
-    show: 'Main',
-  });
+  const [showIs, setshowIs] = useState<NewsShowType>({ show: 'Main' });
+  const [author, setAuthor] = useState<{ authorName: string; aurhorDesc: string }>({ aurhorDesc: '', authorName: '' });
+  const [news, setNews] = useState<CardNewsType[]>([]);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
 
-  const [author, setAuthor] = useState('');
+  const fetchNews = async (pageNum: number) => {
+    try {
+      setLoading(true);
+      const data = await getData<CardNewsType[]>(`http://localhost:3005/posts?action=get&page=${pageNum}`);
+      if (!data || data.length === 0) {
+        setHasMore(false);
+        return;
+      }
+
+      setNews(prev => [...prev, ...data]);
+    } catch (error) {
+      console.error('Ошибка загрузки новостей:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchNews(1);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (loading || !hasMore) return;
+
+      const bottomReached = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100;
+
+      if (bottomReached) {
+        setPage(prev => prev + 1);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [loading, hasMore]);
+
+  useEffect(() => {
+    if (page > 1) fetchNews(page);
+  }, [page]);
 
   const show = (data: NewsShowType) => {
     setshowIs(data);
   };
+
   return (
     <NewsPageContainer>
       {showIs.show !== 'Main' && <BackButton onClick={() => show({ show: 'Main' })} />}
@@ -46,19 +81,19 @@ export const NewsPage: FC<NewsPageProps> = () => {
               objectFit: 'contain',
               maxWidth: '100%',
             }}
-            src={`${mospromLogo}`}
-            alt={mospromLogo}
+            src={mospromLogo}
+            alt="mospromLogo"
             loading="lazy"
           />
           <AppTypography fontWeight={900} variant="h2" fontSize={'1.25rem'} font="Roblox2Squared" color="secondary">
-            {'достигай большего'}
+            достигай большего
           </AppTypography>
         </>
       )}
-      {showIs.show === 'Group' && author !== '' && (
+      {showIs.show === 'Group' && author.authorName !== '' && (
         <>
           <Box sx={{ paddingTop: '56px' }} />
-          <Avatar sx={{ width: 115, height: 115 }} alt={'profile-image'} src={''} />
+          <Avatar sx={{ width: 115, height: 115 }} alt="profile-image" src="" />
           <AppTypography
             sx={{ paddingTop: '20px' }}
             font="Robloxian2"
@@ -67,7 +102,7 @@ export const NewsPage: FC<NewsPageProps> = () => {
             color="success"
             variant="h2"
           >
-            {author}
+            {author.authorName}
           </AppTypography>
           <AppTypography
             sx={{ paddingTop: '8px', paddingBottom: '20px' }}
@@ -77,30 +112,28 @@ export const NewsPage: FC<NewsPageProps> = () => {
             color="success"
             variant="h2"
           >
-            {'дата регистрации'}
+            дата регистрации
           </AppTypography>
           <GroupDescription>
             <AppTypography
               lineHeight={1}
-              sx={{}}
               font="Robloxian2"
               fontSize={'1rem'}
               fontWeight={800}
               color="primary"
               variant="h2"
             >
-              {'специализация: производство продуктов IPS для финансовых организаций'}
+              специализация: производство продуктов IPS для финансовых организаций
             </AppTypography>
             <AppTypography
               lineHeight={1}
-              sx={{}}
               font="Robloxian2"
               fontSize={'1rem'}
               fontWeight={800}
               color="primary"
               variant="h2"
             >
-              {'предлагают: кейсы мероприятия'}
+              предлагают: кейсы, мероприятия
             </AppTypography>
           </GroupDescription>
           <AppTypography
@@ -111,18 +144,24 @@ export const NewsPage: FC<NewsPageProps> = () => {
             color="primary"
             variant="h2"
           >
-            {'Последние посты'}
+            Последние посты
           </AppTypography>
         </>
       )}
+
       <CardNewsList
-        newsData={News}
+        newsData={news}
         onClickGroup={author => {
           setAuthor(author);
           show({ show: 'Group' });
         }}
       />
-      <Box sx={{ display: 'flex', width: '100%', height: '30vh' }} />
+
+      {loading && (
+        <AppTypography sx={{ textAlign: 'center', padding: '20px' }} color="primary">
+          Загрузка...
+        </AppTypography>
+      )}
     </NewsPageContainer>
   );
 };

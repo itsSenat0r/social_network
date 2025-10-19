@@ -1,8 +1,8 @@
 import Box from '@mui/material/Box'
 import { styled } from '@mui/material'
-import achievementsButtonBackImg from '../../assets/images/achievementsButtonBackImage.png';
 import axios, { AxiosResponse } from 'axios';
 import { CardNewsType } from '../../Components/CardNewsList/CardNewsList';
+import achievementsButtonBackImg from '../../assets/images/achievementsButtonBackImage.png';
 
 export const NewsPageContainer = styled(Box)(() => ({
   display: 'flex',
