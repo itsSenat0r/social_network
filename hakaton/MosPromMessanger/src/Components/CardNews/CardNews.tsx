@@ -59,8 +59,8 @@ export const CardNews: FC<CardNewsProps> = ({ newsData, children }) => {
             maxWidth: '600px',
             borderRadius: '16px',
           }}
-          src={`${bakcgroundImg}`}
-          alt={bakcgroundImg}
+          src={newsData.postPicture}
+          alt={"postpicture"}
           loading="lazy"
         />
       </Box>

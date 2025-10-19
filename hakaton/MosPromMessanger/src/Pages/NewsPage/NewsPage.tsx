@@ -4,38 +4,20 @@ import mospromLogo from '../../assets/images/mospromLogo.png';
 import AppTypography from '../../UI/AppTypography/AppTypography';
 import { CardNewsList, CardNewsType } from '../../Components/CardNewsList/CardNewsList';
 import { Box } from '@mui/material';
+import { getData, sendData } from './NewsPageContainer'
 
 type NewsPageProps = {
   props?: never;
 };
 
-const mockNews: CardNewsType[] = [
-  {
-    id: '0',
-    headerText: 'Кейс',
-    authorImg: '1',
-    authorName: 'ООО "Цифра Плюс"',
-    postData: '25.04.2024',
-    smallDescription:
-      'ООО "Цифра Плюс" организует кейс по оптимизации IT-инфраструктуры для крупного банка. В рамках проекта будут внедрены решения по безопасности и мониторингу систем.',
-    countLikes: 812,
-    countMessages: 745,
-    countReposts: 312,
-  },
-  {
-    id: '0',
-    headerText: 'Кейс',
-    authorImg: '1',
-    authorName: 'ООО "Цифра Плюс"',
-    postData: '25.04.2024',
-    smallDescription:
-      'ООО "Цифра Плюс" организует кейс по оптимизации IT-инфраструктуры для крупного банка. В рамках проекта будут внедрены решения по безопасности и мониторингу систем.',
-    countLikes: 812,
-    countMessages: 745,
-    countReposts: 312,
-  },
-];
+const News: CardNewsType[] = [];
 
+
+
+(async () => {
+  const data = await getData<CardNewsType[]>('http://localhost:3005/posts?action=get') ?? [];
+  News.push(...data);
+})();
 export const NewsPage: FC<NewsPageProps> = () => {
   return (
     <NewsPageContainer>
@@ -55,7 +37,7 @@ export const NewsPage: FC<NewsPageProps> = () => {
       <AppTypography fontWeight={900} variant="h2" fontSize={'1.25rem'} font="Roblox2Squared" color="secondary">
         {'достигай большего'}
       </AppTypography>
-      <CardNewsList newsData={mockNews} />
+      <CardNewsList newsData={News} />
       <Box sx={{ display: 'flex', width: '100%', height: '30vh' }} />
     </NewsPageContainer>
   );

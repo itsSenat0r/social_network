@@ -165,7 +165,7 @@ async def groups(user: AuthUser,
             )
             return { "OK" }
 
-    elif action == 'check':
+    elif action == 'get':
         if not doc['account_groups'] or doc['account_groups'] == 'none':
             return { 'No groups are linked to account' }
         else:
@@ -174,3 +174,76 @@ async def groups(user: AuthUser,
 
     else:
         return { 'Incorrect action' }
+
+
+@api.get("/cases")
+async def cases(user: AuthUser,
+                action: str = Query(...),
+                case_id: str = Query(...)):
+    id = user.account_id
+    password = user.password
+
+    doc = await db['users'].find_one({"account_id": id})
+    if not doc:
+        raise HTTPException(status_code=404, detail='User is not exists')
+    if not bcrypt.checkpw(password.encode("utf-8"), doc['account_password_hash'].encode("utf-8")):
+        return { "Incorrect password" }
+
+    if action == 'get_all':
+        data = []
+        async for doc in db['cases'].find({}):
+            doc.pop('_Id', None)
+            data.append(doc)
+
+        return data
+    
+    elif action == 'get_completed':
+        if doc['account_completed_cases'] != {}:
+            return doc['account_compledeted_cases']
+        else:
+            return { "You don't have any completed cases" }
+        
+    elif action == 'case_progress':
+        return doc['account_inwork_cases']
+    
+    elif action == 'get_by_id' and case_id:
+        data = []
+        async for doc in db['cases'].find({}):
+            doc.pop('_Id', None)
+            data.append(doc)
+        return data[case_id]
+    else:
+        return {"Incorrect action"}
+@api.post("/cases/change_progress")
+async def change_case_progress(user: AuthUser,
+                               case_id: str = Query(...),
+                               progress: str = Query(...)):
+    id = user.account_id
+    password = user.password
+
+    doc = await db['users'].find_one({"account_id": id})
+    if not doc:
+        raise HTTPException(status_code=404, detail='User is not exists')
+    if not bcrypt.checkpw(password.encode("utf-8"), doc['account_password_hash'].encode("utf-8")):
+        return { "Incorrect password" }
+    
+    if progress and case_id:
+        progress_now = await doc[f'account_inwork_cases.{case_id}']
+        if progress_now + progress > 1:
+            await db['users'].update_one({
+                {"account_id": id},
+                {"$unset": {case_id: ""}}
+            })
+            await db['users'].update_one(
+                {"account_id": id},
+                {"$set": {"account_completed_cases": {"CaseId": case_id}}}
+                )
+            return { "Case is complete" }
+        await db['users'].update_one(
+            {"account_id": id},
+            {"$set": {f"account_inwork_cases.{case_id}": str(int(progress_now) + int(progress)) }}
+        )
+        return { "Progress of the case has been updated" }
+
+    else:
+        return { "Incorrect data" }
