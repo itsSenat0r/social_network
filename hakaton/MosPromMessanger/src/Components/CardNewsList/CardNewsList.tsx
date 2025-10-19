@@ -4,7 +4,7 @@ import { CardNews } from '../CardNews/CardNews';
 
 type CardNewsListProps = {
   newsData: CardNewsType[];
-  onClickGroup: (authorName: string) => void;
+  onClickGroup: (authorName: string, authorDesc: string) => void;
 };
 
 export const CardNewsList: FC<CardNewsListProps> = ({ newsData, onClickGroup }) => (

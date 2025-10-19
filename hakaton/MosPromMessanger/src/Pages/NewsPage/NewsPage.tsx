@@ -17,7 +17,7 @@ type NewsShowType = {
 
 export const NewsPage: FC<NewsPageProps> = () => {
   const [showIs, setshowIs] = useState<NewsShowType>({ show: 'Main' });
-  const [author, setAuthor] = useState<{ authorName: string; aurhorDesc: string }>({ aurhorDesc: '', authorName: '' });
+  const [author, setAuthor] = useState<{ authorName: string; aurhorDesc: string }>({ authorName: '', aurhorDesc: '' });
   const [news, setNews] = useState<CardNewsType[]>([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -151,9 +151,9 @@ export const NewsPage: FC<NewsPageProps> = () => {
 
       <CardNewsList
         newsData={news}
-        onClickGroup={author => {
-          setAuthor(author);
-          show({ show: 'Group' });
+        onClickGroup={(authorName, authorDesc) => {
+          setAuthor({ aurhorDesc: authorDesc, authorName: authorName });
+          setshowIs({ show: 'Group' });
         }}
       />
 

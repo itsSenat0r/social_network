@@ -12,7 +12,7 @@ import ReplyIcon from '@mui/icons-material/Reply';
 type CardNewsProps = {
   children?: React.ReactNode;
   newsData: CardNewsType;
-  onClickAuthor: (authorName: string) => void;
+  onClickAuthor: (authorName: string, authorDesc: string) => void;
 };
 
 export const CardNews: FC<CardNewsProps> = ({ newsData, children, onClickAuthor }) => {
@@ -23,7 +23,7 @@ export const CardNews: FC<CardNewsProps> = ({ newsData, children, onClickAuthor 
           {newsData.headerText}
         </AppTypography>
       </CardNewsHeader>
-      <CardNewsAuthorContainer onClick={() => onClickAuthor(newsData.authorName)}>
+      <CardNewsAuthorContainer onClick={() => onClickAuthor(newsData.authorName, newsData.smallDescription)}>
         <Avatar sx={{ width: 50, height: 50 }} alt={newsData.authorName} src={newsData.authorImg} />
         <Box
           sx={{
