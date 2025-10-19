@@ -166,6 +166,7 @@ export const NewsPage: FC<NewsPageProps> = () => {
       <CardNewsList
         newsData={news}
         onClickGroup={(authorName, authorDesc, data) => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
           setAuthor({ aurhorDesc: authorDesc, authorName: authorName, data: data });
           setshowIs({ show: 'Group' });
           setNews(prevNews =>
